@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper 테스트</title>
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/test1.css" />
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./img/icon_01.png" alt="Instagram" />
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/icon_02.png" alt="Facebook" />
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/icon_03.png" alt="Twitter" />
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/icon_04.png" alt="LinkedIn" />
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/icon_05.png" alt="YouTube" />
+            </div>
+        </div>
+
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    <script type="module">
+        import { initMenuHover } from './js/index.js';
+
+        fetch('header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+
+
+                const script = document.createElement('script');
+                script.src = './js/header.js';
+                document.body.appendChild(script);
+
+
+                initMenuHover();
+            });
+    </script>
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/test1.js"></script>
+</body>
+
+</html>

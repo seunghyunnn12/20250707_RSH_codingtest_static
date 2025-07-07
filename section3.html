@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>section3</title>
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/section3.css" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="container">
+    <div class="box box1">
+      <div class="box1-overlay">Hello World</div>
+    </div>
+    <div class="box box2"></div>
+    <div class="box box3">
+      <div class="inner inner1"></div>
+      <div class="inner inner2"></div>
+    </div>
+  </main>
+
+    <script type="module">
+    import { initMenuHover } from './js/index.js';
+
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+
+ 
+        const script = document.createElement('script');
+        script.src = './js/header.js';
+        document.body.appendChild(script);
+
+
+        initMenuHover();
+      });
+  </script>
+  <script src="./js/section3.js"></script>
+</body>
+</html>

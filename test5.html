@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test5 - 할 일 목록</title>
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/test5.css" />
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <main class="todo-container">
+        <h1>📋 할 일 목록</h1>
+        <div class="input-area">
+            <input type="text" id="todo-input" placeholder="할 일을 입력하세요" />
+            <button id="add-btn">추가</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </main>
+
+    <script type="module">
+        import { initMenuHover } from './js/index.js';
+
+        fetch('header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+
+
+                const script = document.createElement('script');
+                script.src = './js/header.js';
+                document.body.appendChild(script);
+
+
+                initMenuHover();
+            });
+    </script>
+    <script src="./js/test5.js"></script>
+</body>
+
+</html>

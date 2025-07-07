@@ -1,0 +1,208 @@
+/* ✅ 공통 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+li {
+  list-style-type: none;
+}
+
+/* ✅ 고정 헤더 */
+header.menu-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* ✅ 데스크탑 메뉴 */
+.gnb .depth1 {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item > a {
+  display: block;
+  color: #000;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 1rem 1.2rem;
+  transition: color 0.3s;
+}
+
+.menu-item > a:hover {
+  color: #f66;
+}
+
+.depth2 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  min-width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 999;
+  display: none;
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover .depth2 {
+  display: block;
+  max-height: 300px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.depth2 li {
+  text-align: center;
+}
+
+.depth2 li a {
+  display: block;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.4rem;
+  transition: all 0.2s;
+}
+
+.depth2 li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ✅ 햄버거 버튼 (기본 숨김) */
+.toggle-btn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.toggle-btn span {
+  height: 3px;
+  background: #000;
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+}
+
+/* ✅ 어두운 배경 dim */
+.dimmed {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* 30% 검정 */
+  z-index: 900;
+}
+
+.dimmed.active {
+  display: block;
+}
+
+/* ✅ 모바일/태블릿 (768px 미만) */
+@media (max-width: 767px) {
+  header.menu-wrap {
+    height: 60px;
+    padding: 0 2rem;
+  }
+
+  .toggle-btn {
+    display: flex;
+    z-index: 100;
+  }
+
+  .gnb {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    padding: 8rem 2rem 2rem;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .gnb.active {
+    right: 0;
+  }
+
+  .gnb .depth1 {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu-item > a {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+  }
+
+  .depth2 {
+    display: none !important;
+    position: static;
+    background: transparent;
+    opacity: 1;
+    max-height: none;
+    pointer-events: auto;
+  }
+
+  .menu-item.active .depth2 {
+    display: block !important;
+  }
+
+  .depth2 li a {
+    color: #555;
+    background: #f5f5f5;
+    padding-left: 1.5rem;
+    font-size: 1.4rem;
+    margin-top: 0.4rem;
+  }
+}
+
+/* ✅ PC (768px 이상) */
+@media (min-width: 768px) {
+  .gnb {
+    display: flex !important;
+  }
+
+  .toggle-btn {
+    display: none !important;
+  }
+}

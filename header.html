@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>헤더 테스트</title>
+  <link rel="stylesheet" href="./css/header.css" />
+</head>
+<body>
+
+
+  <header class="menu-wrap">
+    <div class="logo">
+      <a href="index.html">
+        <img src="./img/logo.png" alt="logo" />
+      </a>
+    </div>
+
+    <button class="toggle-btn" aria-label="전체 메뉴 열기">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="gnb">
+      <ul class="depth1">
+        <li class="menu-item">
+          <a href="#">메뉴1</a>
+          <ul class="depth2">
+            <li><a href="section1.html">섹션1</a></li>
+            <li><a href="#">섹션2</a></li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="#">메뉴2</a>
+          <ul class="depth2">
+            <li><a href="test1.html">test1</a></li>
+            <li><a href="#">test2</a></li>
+            <li><a href="#">test3</a></li>
+            <li><a href="#">test4</a></li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="#">menu3</a>
+          <ul class="depth2">
+            <li><a href="section3.html">section3</a></li>
+            <li><a href="test5.html">test5</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="dimmed"></div>
+
+  <script src="./js/header.js"></script>
+</body>
+</html>
